@@ -37,3 +37,25 @@ checkout the latest tag
 ```bash
 git checkout MAIN.2.1
 ```
+Route your node, port 31244 & 31245
+```bash
+ufw allow 31244 && ufw allow 31245
+```
+edit the file massa-node/config/config.toml
+```bash
+nano massa-node/config/config.toml
+copy and paste this config [https://github.com/massalabs/massa/blob/main/massa-node/base_config/config.toml] to your config.toml
+```
+config/set your node public IP Address
+```bash
+routable_ip = "YourNodePublicIPAddress"
+```
+save that .toml update configuration
+```bash
+(CTRL+X) then (CTRL+Y) then (ENTER)
+```
+Launch your node, Replace <PASSWORD> with a password that you will need to keep to restart your node
+```bash
+cd massa/massa-node/
+./massa-node -p <PASSWORD> |& tee logs.txt
+```
